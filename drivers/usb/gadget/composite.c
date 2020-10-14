@@ -976,12 +976,8 @@ static int set_config(struct usb_composite_dev *cdev,
 	power = c->MaxPower ? c->MaxPower : CONFIG_USB_GADGET_VBUS_DRAW;
 	if (gadget->speed < USB_SPEED_SUPER)
 		power = min(power, 500U);
-<<<<<<< HEAD
-
-=======
 	else
 		power = min(power, 900U);
->>>>>>> 66430b00c4b5dc1c75505481d51d7e78f0439f32
 done:
 	usb_gadget_vbus_draw(gadget, power);
 	if (result >= 0 && cdev->delayed_status)
@@ -2427,13 +2423,9 @@ void composite_resume(struct usb_gadget *gadget)
 {
 	struct usb_composite_dev	*cdev = get_gadget_data(gadget);
 	struct usb_function		*f;
-<<<<<<< HEAD
 	unsigned int			maxpower;
 	int				ret;
 	unsigned long			flags;
-=======
-	unsigned			maxpower;
->>>>>>> 66430b00c4b5dc1c75505481d51d7e78f0439f32
 
 	/* REVISIT:  should we have config level
 	 * suspend/resume callbacks?
@@ -2472,20 +2464,11 @@ void composite_resume(struct usb_gadget *gadget)
 				f->resume(f);
 		}
 
-<<<<<<< HEAD
 		maxpower = cdev->config->MaxPower;
 		maxpower = maxpower ? maxpower : CONFIG_USB_GADGET_VBUS_DRAW;
 		if (gadget->speed < USB_SPEED_SUPER)
 			maxpower = min(maxpower, 500U);
-=======
-		maxpower = cdev->config->MaxPower ?
-			cdev->config->MaxPower : CONFIG_USB_GADGET_VBUS_DRAW;
-		if (gadget->speed < USB_SPEED_SUPER)
-			maxpower = min(maxpower, 500U);
-		else
-			maxpower = min(maxpower, 900U);
 
->>>>>>> 66430b00c4b5dc1c75505481d51d7e78f0439f32
 		usb_gadget_vbus_draw(gadget, maxpower);
 	}
 
