@@ -7952,12 +7952,11 @@ static int ufshcd_reset_and_restore(struct ufs_hba *hba)
 	 * After reset the door-bell might be cleared, complete
 	 * outstanding requests in s/w here.
 	 */
-	spin_lock_irqsave(hba->host->host_lock, flags);
+	spin_lock_irqsave(hba->host->host_lock);
 	ufshcd_transfer_req_compl(hba);
 	ufshcd_tmc_handler(hba);
-	spin_unlock_irqrestore(hba->host->host_lock, flags);
-
-	return err;
+	spin_unlock_irqrestore(hba->host->host_lock);
+        return err;
 }
 
 /**
