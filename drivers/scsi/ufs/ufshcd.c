@@ -7941,7 +7941,6 @@ static int ufshcd_reset_and_restore(struct ufs_hba *hba)
 		err = ufshcd_detect_device(hba);
 	} while (err && --retries);
 
-<<<<<<< HEAD
 	/*
 	 * There is no point proceeding even after failing
 	 * to recover after multiple retries.
@@ -7958,8 +7957,6 @@ static int ufshcd_reset_and_restore(struct ufs_hba *hba)
 	ufshcd_tmc_handler(hba);
 	spin_unlock_irqrestore(hba->host->host_lock, flags);
 
-=======
->>>>>>> c8e0f7de7856a4214c8578d8b75bd276d393087e
 	return err;
 }
 
