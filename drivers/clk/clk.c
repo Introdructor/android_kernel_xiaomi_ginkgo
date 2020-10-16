@@ -60,16 +60,6 @@ static DEFINE_MUTEX(vdd_class_list_lock);
  * returning from clk_core_set_rate_nolock().
  */
 static LIST_HEAD(clk_rate_change_list);
-static struct hlist_head *all_lists[] = {
-	&clk_root_list,
-	&clk_orphan_list,
-	NULL,
-};
-
-static struct hlist_head *orphan_list[] = {
-	&clk_orphan_list,
-	NULL,
-};
 
 /***    private data structures    ***/
 
